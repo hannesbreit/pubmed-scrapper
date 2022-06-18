@@ -39,15 +39,11 @@ for idx, lst in enumerate(list_of_lists_scrapped_pmids):
                     if target != link:
                         target += element
                         if target == link:
-                            edges_dict.append({'source': link,
-                                               'target': target,
-                                               'pmid': pmid,
-                                               'meshcode': meshcode})
+                            edges_dict.append(
+                                {'source': link, 'target': target, 'pmid': pmid, 'meshcode': meshcode})
                         elif target != link:
-                            edges_dict.append({'source': link,
-                                               'target': target,
-                                               'pmid': pmid,
-                                               'meshcode': ""})
+                            edges_dict.append(
+                                {'source': link, 'target': target, 'pmid': pmid, 'meshcode': ""})
                             target += "."
 
     roundend = time.time()
