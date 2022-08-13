@@ -35,7 +35,6 @@
 		"ms-python.vscode-pylance",
 		"albert.tabout",
 		"withfig.fig",
-		"alexcvzz.vscode-sqlite",
 		"njpwerner.autodocstring"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
