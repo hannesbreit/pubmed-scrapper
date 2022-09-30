@@ -1,0 +1,350 @@
+#searchDescriptorsForm {
+    position: relative;
+}
+.verticalCenter {
+    top: 50px;
+}
+#searchSettings{
+    margin-top: 10px;
+}
+#searchSettings select, #searchSettings .form-group{
+    height: 29px;
+    padding: 0px;
+    margin-left: 10px;
+}
+
+#searchSettings{
+    float: right;
+}
+
+#searchSettings .form-group select{
+    margin-bottom: 5px;
+}
+
+#resultsPageInfo, #totalPages{
+    float: right;
+}
+
+#nrResults, #resultsPageInfo, #totalPages {
+    position: relative;
+    top: -18px;
+}
+
+.secondaryTerms{
+    margin-left: 20px;
+}
+
+#meshNavbarLogo {
+    height: 52px;
+    margin: -16px;
+}
+
+#downloadSurvey {
+    margin: 10px 5px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    background-color: #777;
+    color: #fff;
+}
+
+#downloadSurvey:hover, #downloadSurvey:focus { font-style: italic }
+
+#meshSearchLogo{
+    height: 200px;
+    margin-top: 30px;
+    margin-bottom: -10px;
+}
+
+.conceptsTabTermHeading{
+    display: inline-block;
+    width: 90px;
+}
+
+.fakeLink{
+    cursor: pointer;
+}
+
+#searchInChemicalFieldsCheckboxes{
+    margin-left: 20px;
+}
+#searchInFreeTextCheckboxes{
+    margin-left: 20px;
+}
+#searchInMainGroups{
+    margin-left: 20px;
+}
+#searchRNAndRR{
+    margin-left: 20px;
+}
+
+.treeCollapseExpand {
+    color: #337ab7;
+}
+
+
+
+.loading:after {
+    position:absolute;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    -webkit-animation: ellipsis steps(4,end) 900ms infinite;
+    animation: ellipsis steps(4,end) 900ms infinite;
+    content: "\2026"; /* ascii code for the ellipsis character */
+    width: 0px;
+}
+
+@keyframes ellipsis {
+    to {
+        width: 20px;
+    }
+}
+
+@-webkit-keyframes ellipsis {
+    to {
+        width: 20px;
+    }
+}
+@media print {
+    a[href]:after {
+        content: none !important;
+    }
+    to {
+        width: 20px;
+    }
+    @page {
+        size: auto;
+        margin: 0;
+    }
+}
+
+.treeItem{
+    list-style-type: none;
+}
+
+.NLMheader {
+    background-color:#20558a;
+    background-image: url('/public/img/NLM_Star.png');
+    background-size: 223px 80px;
+    background-position: 300px;
+    background-repeat: no-repeat;
+}
+
+header img { padding-left: 20px }
+
+.navbar [role="alert"], .navbar [role="alert"] * {
+    color: #fff;
+    background-color: #dc3545;
+    text-align: left;
+}
+
+.navbar [role="alert"] {
+    padding: 2rem;
+}
+
+.navbar [role="alert"] img {
+    float: left;
+    margin-right: 2em;
+}
+
+.navbar [role="alert"] button {
+    margin-top: 1rem;
+    padding: 0rem 0.65rem;
+    background-color: white;
+    opacity: 0.5;
+    border: 0;
+    border-radius: 1.5rem;
+    float: right;
+}
+
+.navbar [role="alert"] button span {
+    background-color: white;
+    color: black;
+}
+
+body > div { margin-bottom: 1em }
+.disclaim em { text-decoration: underline }
+
+footer                    { background-color: #20558a }
+footer *, .footer a:hover { color           : #fff    }
+footer img                { height          : 35px    }
+
+footer .row {
+    margin   : 1em;
+    display  : flex;
+    flex-wrap: wrap;
+}
+
+footer .col-lg-12 { width: 100% }
+
+.error {
+    color: #dc3545;
+    text-align: center;
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+#MODEntry{
+    max-width:900px;
+    min-height: 270px;
+    font-family:'Ubuntu', Helvetica, Arial, sans-serif;
+    background:#fff;
+    border-radius:3px;
+    line-height:2em;
+    border:none;
+    resize:none;
+    box-shadow:0px 0px 5px 1px rgba(0,0,0,0.1);
+}
+
+* {
+    -webkit-font-smoothing:antialiased !important;
+}
+#MODResult{
+    /*Size needs to be dynamic with screen*/
+    font-family:'Ubuntu', Helvetica, Arial, sans-serif;
+    /*max-height: 900px;*/
+    max-height: 600px;
+    overflow-y: auto;
+    border-radius:3px;
+    line-height:2em;
+    border:none;
+    resize:none;
+    min-height: 270px;
+    box-shadow:0px 0px 5px 1px rgba(0,0,0,0.1);
+    background: rgb(248, 248, 248);
+    cursor: default;
+
+}
+.centerIconSpinner{
+    display: block;
+    width: 100%;
+    text-align:center;
+}
+
+@media print {
+    a[href]:after {
+        content: none !important;
+    }
+    to {
+        width: 20px;
+    }
+    @page {
+        size: auto;
+        margin: 0;
+    }
+}
+.headerColor {
+    background:#20558a;
+}
+.imageSize {
+}
+
+#meshSearchLogo{
+    height:80px;
+}
+
+.MOD_Loading {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+#loaderWhiteBg{
+    margin: auto;
+    height: 148px;
+    width: 170px;
+    background-color: rgba(255, 255, 255, 0.67);
+    border-radius: 25px;
+}
+.mod_cmd_btn{
+    box-shadow:0px 0px 5px 1px rgba(2,132,130,0.3);
+    border:none;
+    border-bottom-width: 0px;
+    height: 50px;
+    width: 100px;
+}
+.run-btn{
+    border-radius: 5px 0px 0px 0px;
+}
+
+.help-btn{
+    border-radius: 0px 5px 0px 0px;
+}
+.highlightedModTerm  {}
+.modHighlight {
+    background-color: lightblue;
+    text-decoration: underline;
+
+}
+
+.redClass {
+    color: red;
+
+}
+.pointer{
+
+    cursor: pointer;
+}
+.fontHel{
+    font-family:'Ubuntu', Helvetica, Arial, sans-serif;
+}
+@media only screen and (max-width: 1024px) {
+    .resp1 {
+        display: none;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .resp2 {
+        display: none;
+    }
+}
+.PMSFormat, .PMSFormat input{
+    margin: 0px 0px 0px 0px;
+}
+#backToTop{
+    background-color: #20558a;
+    color: white;
+    text-align: center;
+    padding: 5px;
+}
+
+#searchResults a:visited {
+    color: rgb(125, 125, 125)!important;;
+}
+
+.pmSearchColumn{width: 50%;}
+.newMODAlert{
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    background-color: #d9534f;
+    border-radius: 10px;
+}
+
+/* based on "popover" class in bootstrap.css */
+.scope-note {
+    width: 40ex;
+    position: absolute;
+    right: 100%;
+    padding: 1em;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: silver;
+    background-color: white;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    font-family: Ubuntu, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+}
