@@ -6,7 +6,7 @@ import time
 
 totalstart = time.time()
 
-# Define searchterm which you want to use for scrapping
+# Define searchterm for scrapping
 SEARCHTERM = "\"Giant cell tumor of bone\""
 
 # Query Pubmed API and create a list of lists in chunks of 100 elements each.
