@@ -7,10 +7,10 @@ import time
 totalstart = time.time()
 
 # Define searchterm for scrapping
-SEARCHTERM = "\"Giant cell tumor of bone\""
+SEARCHTERM = "(Osteosarcoma)"
 
 # Query Pubmed API and create a list of lists in chunks of 100 elements each.
-list_scrapped_pmids = get_pmids(SEARCHTERM, 10)
+list_scrapped_pmids = get_pmids(SEARCHTERM, 50000)
 list_of_lists_scrapped_pmids = chunks(list_scrapped_pmids, 5)
 
 
@@ -18,7 +18,11 @@ edges_dict = []
 
 for idx, lst in enumerate(list_of_lists_scrapped_pmids):
     roundstart = time.time()
-    response = get_article(lst)
+    try:
+        response = get_article(lst)
+    except:
+        print("get_article error. Skipping...")
+        break
     root = ET.fromstring(response.content)
 
     for article in root.findall('PubmedArticle'):
@@ -33,18 +37,22 @@ for idx, lst in enumerate(list_of_lists_scrapped_pmids):
 
         for (meshcode, meshcodeui) in zip(meshcodes, meshcodesui):
             link_tree = get_linktree(meshcodeui)
-            for link in link_tree:
-                target = ""
-                for element in link.split("."):
-                    if target != link:
-                        target += element
-                        if target == link:
-                            edges_dict.append(
-                                {'source': link, 'target': target, 'pmid': pmid, 'meshcode': meshcode})
-                        elif target != link:
-                            edges_dict.append(
-                                {'source': link, 'target': target, 'pmid': pmid, 'meshcode': ""})
-                            target += "."
+            if link_tree is None:
+                pass
+            else:
+                for link in link_tree:
+                    target = ""
+                    for element in link.split("."):
+                        if target != link:
+                            target += element
+                            if target == link:
+                                edges_dict.append(
+                                    {'source': link, 'target': target, 'pmid': pmid})
+                            elif target != link:
+                                edges_dict.append(
+                                    {'source':
+                                     link, 'target': target, 'pmid': pmid})
+                                target += "."
 
     roundend = time.time()
     roundtime = roundend - roundstart
@@ -52,17 +60,8 @@ for idx, lst in enumerate(list_of_lists_scrapped_pmids):
 
 
 dfedges = pd.DataFrame(edges_dict)
-dfedges.to_csv('/workspaces/pubmed-scrapper/gephi/edges.csv',
+dfedges.to_csv('~/Desktop/pubmed-scrapper/gephi/OsteosarcomaEdges.csv',
                sep=';', index=False)
-
-# dfnodes = pd.DataFrame(nodes_dict)
-# dfnodes.drop_duplicates().to_csv('/workspaces/pubmed-scrapper/gephi/nodes.csv',
-#                                  sep=';', index=False)
-
-
-# with pd.option_context('display.max_rows', 2, 'display.max_columns', None):
-#     print(dfedges)
-#     print(dfnodes)
 
 totalend = time.time()
 total = totalend - totalstart
