@@ -7,7 +7,7 @@ import time
 totalstart = time.time()
 
 # Define searchterm for scrapping
-SEARCHTERM = "(Osteosarcoma)"
+SEARCHTERM = "Giant cell tumor of bone"
 
 # Query Pubmed API and create a list of lists in chunks of 100 elements each.
 list_scrapped_pmids = get_pmids(SEARCHTERM, 50000)
