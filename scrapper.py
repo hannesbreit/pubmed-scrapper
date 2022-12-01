@@ -1,4 +1,4 @@
-
+import random
 import requests
 from bs4 import BeautifulSoup
 import xml.etree.ElementTree as ET
@@ -69,18 +69,20 @@ def get_linktree(meshcodeui: str) -> list:
     return tree_numbers
 
 
-def get_pmids(searchterm: str, max_results: int) -> list:
+def get_pmids(searchterm: str, max_results: int, randomize: bool) -> list:
     response = requests.get('https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi'
                             '?tool=Masterthesis'
                             '&email=mail@breitfeld.net'
                             '&term=' + searchterm +
-                            '&RetMax=' + str(max_results) +
-                            '&mindate=2018' +
-                            '&maxdate=2023')
+                            '&RetMax=100000')
     soup = BeautifulSoup(response.text, features='xml')
     soup_ids = soup.find_all('Id')
     souped_pmids = [pmid.text for pmid in soup_ids]
-    return souped_pmids
+    if randomize:
+        # return random sample of pmids
+        return random.sample(souped_pmids, max_results)
+    else:
+        return souped_pmids
 
 
 def get_article(pmid: str) -> object:

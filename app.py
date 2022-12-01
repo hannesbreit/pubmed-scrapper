@@ -10,7 +10,7 @@ totalstart = time.time()
 SEARCHTERM = "Giant cell tumor of bone"
 
 # Query Pubmed API and create a list of lists in chunks of 100 elements each.
-list_scrapped_pmids = get_pmids(SEARCHTERM, 50000)
+list_scrapped_pmids = get_pmids(SEARCHTERM, 2700, True)
 list_of_lists_scrapped_pmids = chunks(list_scrapped_pmids, 5)
 
 
