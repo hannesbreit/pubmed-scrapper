@@ -1,4 +1,5 @@
 import pandas as pd
+import datetime
 from scrapper import get_pmids, get_article, get_linktree, chunks
 import xml.etree.ElementTree as ET
 import time
@@ -7,17 +8,21 @@ import time
 totalstart = time.time()
 
 # Define searchterm for scrapping
-SEARCHTERM = "Giant cell tumor of bone"
+SEARCHTERM = '"Giant cell tumor of bone"[All Fields]'
 
 # Query Pubmed API and create a list of lists in chunks of 100 elements each.
 list_scrapped_pmids = get_pmids(SEARCHTERM, 2700, True)
 list_of_lists_scrapped_pmids = chunks(list_scrapped_pmids, 5)
-
+print(
+    f"There were {len(list_scrapped_pmids)} PMIDs randomly picked to be scrapped.")
 
 edges_dict = []
 
 for idx, lst in enumerate(list_of_lists_scrapped_pmids):
+    print(lst)
     roundstart = time.time()
+    now = datetime.datetime.now()
+    print(now.time())
     try:
         response = get_article(lst)
     except:
@@ -60,7 +65,7 @@ for idx, lst in enumerate(list_of_lists_scrapped_pmids):
 
 
 dfedges = pd.DataFrame(edges_dict)
-dfedges.to_csv('~/Desktop/pubmed-scrapper/gephi/OsteosarcomaEdges.csv',
+dfedges.to_csv('~/Desktop/pubmed-scrapper/gephi/GctbEdges.csv',
                sep=';', index=False)
 
 totalend = time.time()
